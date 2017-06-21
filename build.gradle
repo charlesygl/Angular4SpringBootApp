@@ -16,6 +16,7 @@ apply plugin: 'org.springframework.boot'
 
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
 	mavenCentral()
@@ -23,6 +24,25 @@ repositories {
 
 
 dependencies {
+	compile("org.springframework.boot:spring-boot-devtools")
 	compile('org.springframework.boot:spring-boot-starter-web')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+gulp {
+	workDir = file("${project.projectDir}")
+	colors = true
+	bufferOutput = false
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '3.4.1'
+}
+
+bootRun {
+	addResources = true
+}
+
+task stage {
+	dependsOn build
 }
