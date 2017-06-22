@@ -29,11 +29,6 @@ dependencies {
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
-gulp {
-	workDir = file("${project.projectDir}")
-	colors = true
-	bufferOutput = false
-}
 
 task wrapper(type: Wrapper) {
 	gradleVersion = '3.4.1'
